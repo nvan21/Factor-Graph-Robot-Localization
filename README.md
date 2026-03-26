@@ -69,7 +69,7 @@ The SLAM pipeline was developed in four primary stages:
 The implementation demonstrated that while local scan matching drastically improves upon dead-reckoning odometry, global pose graph optimization (specifically with proximity-based loop closures) is strictly necessary to correct long-term drift and yield a structurally perfect map.
 
 ### ICP Warm-Up: 3D Object Pose Estimation
-Prior to applying scan matching to the 2D LiDAR data, the core ICP methodology was validated through a 3D point-cloud registration warm-up.
+Prior to applying scan matching to the 2D LiDAR data, the core ICP methodology was validated through a 3D point-cloud registration warm-up. The red points are the ground truth and the blue points are the scanned points.
 
 ![ICP warm up results](images/icp_warmup_0.png)
 
