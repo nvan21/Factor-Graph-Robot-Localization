@@ -26,21 +26,24 @@ The overarching goal is to estimate the robot's trajectory and construct a 2-D o
 
 **1. Odometry Kinematics:**
 The robot's pose at time $t$ in the world frame is defined as $x_{t}=[x_{t},y_{t},\theta_{t}]^{T}\in SE(2)$. Given control inputs $u_{t}=[v_{t},\omega_{t}]^{T}$ (linear velocity from encoders and yaw rate from IMU), the discrete-time differential-drive motion model is:
+
 $$x_{t+1}=f(x_{t},u_{t})$$
 
 **2. LiDAR Scan Matching (ICP):**
 To correct drift, an Iterative Closest Point (ICP) algorithm finds the optimal 2-D rigid-body transformation (rotation $R$ and translation $p$) between consecutive LiDAR scans by minimizing the squared Euclidean distance between associated points:
+
 $$\min_{R\in SO(2),p}\sum_{i,j\in\Delta}||m_{i}-(Rz_{j}+p)||_{2}^{2}$$
 
 **3. Occupancy Grid Mapping:**
 The map is updated using a recursive Bayesian filter in log-odds form. The log-odds representation $L_{t}(m_{i})$ of a cell $m_{i}$ being occupied is updated via:
+
 $$L_{t}(m_{i})=L_{t-1}(m_{i})+\log(\frac{P(m_{i}|z_{t},x_{t})}{1-P(m_{i}|z_{t},x_{t})})$$
 
 **4. Pose Graph Optimization:**
 To mitigate accumulated drift, a pose graph is optimized by minimizing the sum of squared, weighted residual errors across all relative pose measurements in the graph:
 
 $$
-\min_{\{T_{i}\}} \sum_{(i,j) \in \mathcal{E}} \| W_{ij}\log(\overline{T}_{ij}^{-1}T_{i}^{-1}T_{j}^{-1})^{\vee} \|_{2}^{2}
+\min_{\{T_{i}\}} \sum_{(i,j) \in \mathcal{E}} \|\| W_{ij}\log(\overline{T}_{ij}^{-1}T_{i}^{-1}T_{j}^{-1})^{\vee} \|\|_{2}^{2}
 $$
 
 ---
