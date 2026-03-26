@@ -11,7 +11,7 @@ To strictly comply with university academic integrity policies and course collab
 ## Project Setup
 This project implements a Simultaneous Localization and Mapping (SLAM) pipeline using data from a custom differential-drive robot. 
 
-![Project Setup](images/RobotConfiguration.pdf)
+![Project Setup](images/RobotConfiguration.png)
 
 The robot's hardware and sensor suite includes:
 * **Encoders:** Track the rotations of the four wheels at 40 Hz to provide linear velocity.
