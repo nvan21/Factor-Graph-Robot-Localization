@@ -70,6 +70,7 @@ The implementation demonstrated that while local scan matching drastically impro
 
 ### ICP Warm-Up: 3D Object Pose Estimation
 Prior to applying scan matching to the 2D LiDAR data, the core ICP methodology was validated through a 3D point-cloud registration warm-up.
+
 ![ICP warm up results](images/icp_warmup_0.png)
 
 ### Trajectory Refinement
