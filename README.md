@@ -27,7 +27,9 @@ The overarching goal is to estimate the robot's trajectory and construct a 2-D o
 **1. Odometry Kinematics:**
 The robot's pose at time $t$ in the world frame is defined as $x_{t}=[x_{t},y_{t},\theta_{t}]^{T}\in SE(2)$. Given control inputs $u_{t}=[v_{t},\omega_{t}]^{T}$ (linear velocity from encoders and yaw rate from IMU), the discrete-time differential-drive motion model is:
 
-$$x_{t+1}=f(x_{t},u_{t})$$
+$$
+x_{t+1}=x_{t}+\Delta t\begin{bmatrix}v_{t}\mathrm{sinc}(\frac{\omega_{t}\Delta t}{2})\cos(\theta_{t}+\frac{\omega_{t}\Delta t}{2})\\ v_{t}\mathrm{sinc}(\frac{\omega_{t}\Delta t}{2})\sin(\theta_{t}+\frac{\omega_{t}\Delta t}{2})\end{bmatrix}
+$$
 
 **2. LiDAR Scan Matching (ICP):**
 To correct drift, an Iterative Closest Point (ICP) algorithm finds the optimal 2-D rigid-body transformation (rotation $R$ and translation $p$) between consecutive LiDAR scans by minimizing the squared Euclidean distance between associated points:
