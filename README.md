@@ -1,7 +1,6 @@
 # Project 2: LiDAR-Based SLAM
-**Course:** ECE 276A: Sensing & Estimation in Robotics
+**Course:** ECE 276A: Sensing & Estimation in Robotics  
 **Institution:** University of California San Diego
-**Author:** Nathan Van Utrecht
 
 ## Academic Integrity Notice
 ⚠️ **Source Code Withheld**
