@@ -39,7 +39,7 @@ $$L_{t}(m_{i})=L_{t-1}(m_{i})+\log(\frac{P(m_{i}|z_{t},x_{t})}{1-P(m_{i}|z_{t},x
 **4. Pose Graph Optimization:**
 To mitigate accumulated drift, a pose graph is optimized by minimizing the sum of squared, weighted residual errors across all relative pose measurements in the graph:
 $$
-\min_{\{T_{i}\}} \sum_{(i,j) \in \mathcal{E}} \left\| W_{ij}\log(\overline{T}_{ij}^{-1}T_{i}^{-1}T_{j}^{-1})^{\vee} \right\|_{2}^{2}
+\min_{\{T_{i}\}} \sum_{(i,j) \in \mathcal{E}} \| W_{ij}\log(\overline{T}_{ij}^{-1}T_{i}^{-1}T_{j}^{-1})^{\vee} \|_{2}^{2}
 $$
 
 ---
