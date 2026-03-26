@@ -28,7 +28,12 @@ The overarching goal is to estimate the robot's trajectory and construct a 2-D o
 The robot's pose at time $t$ in the world frame is defined as $x_{t}=[x_{t},y_{t},\theta_{t}]^{T}\in SE(2)$. Given control inputs $u_{t}=[v_{t},\omega_{t}]^{T}$ (linear velocity from encoders and yaw rate from IMU), the discrete-time differential-drive motion model is:
 
 $$
-x_{t+1}=x_{t}+\Delta t\begin{bmatrix}v_{t}\mathrm{sinc}(\frac{\omega_{t}\Delta t}{2})\cos(\theta_{t}+\frac{\omega_{t}\Delta t}{2})\\ v_{t}\mathrm{sinc}(\frac{\omega_{t}\Delta t}{2})\sin(\theta_{t}+\frac{\omega_{t}\Delta t}{2})\end{bmatrix}
+x_{t+1}=x_{t}+\Delta t
+\begin{bmatrix}
+v_{t}\mathrm{sinc}(\frac{\omega_{t}\Delta t}{2})\cos(\theta_{t}+\frac{\omega_{t}\Delta t}{2}) \\ 
+v_{t}\mathrm{sinc}(\frac{\omega_{t}\Delta t}{2})\sin(\theta_{t}+\frac{\omega_{t}\Delta t}{2}) \\ 
+\omega_t
+\end{bmatrix}
 $$
 
 **2. LiDAR Scan Matching (ICP):**
